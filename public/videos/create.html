@@ -2,18 +2,32 @@
 <html>
   <head>
     <title>VidBits</title>
-    <link rel="icon" type="image/ico" href="img/favicon.ico">
+    <link rel="icon" type="image/ico" href="/img/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,500" rel="stylesheet">
-    <link rel='stylesheet' href='stylesheets/style.css'>
+    <link rel='stylesheet' href='/stylesheets/style.css'>
   </head>
   <body>
     <div class="title-container">
       <div class="title-logo">
-        <img src="img/logo.svg" alt="">
+        <img src="/img/logo.svg" alt="">
       </div>
     </div>
     <div class="contents-container">
-      Save a video
+      <h1>Save a video</h1>
+      <form action="/videos" method="post">
+        <label>
+          Title
+          <input type="text" name="title" />
+        </label>
+        <label>
+          Description
+          <textarea name="description">
+          </textarea>
+        </label>
+        <button type="submit" class="input-button">
+          Save
+        </button>
+      </form>
     </div>
   </body>
 </html>
