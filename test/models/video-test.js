@@ -30,4 +30,14 @@ describe('Model: Video', () => {
       assert.strictEqual(item.title, notString.toString());
     });
   });
+  describe('#description', () => {
+    it('should be a string', () => {
+      // Setup
+      const notString = 1;
+      const item = new Video({description: notString});
+
+      // Verification
+      assert.strictEqual(item.description, notString.toString());
+    });
+  });
 });
