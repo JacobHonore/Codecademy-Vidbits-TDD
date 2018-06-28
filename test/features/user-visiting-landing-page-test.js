@@ -1,4 +1,7 @@
 const {assert} = require('chai');
+const {buildItemObject} = require('../test-utils');
+const {connectDatabase, disconnectDatabase} = require('../database-utilities');
+const Video = require('../../models/video')
 
 describe('User visits landing page', () => {
   describe('without existing videos', () => {
@@ -8,6 +11,18 @@ describe('User visits landing page', () => {
 
       // Exercise & Verification
       assert.equal(browser.getText('#videos-container'), '');
+    });
+  });
+  describe('with a video', () => {
+    it('should render it in the list', () => {
+      // setup
+      const itemToCreate = buildItemObject();
+      const newVideo = new Video(itemToCreate);
+      newVideo.save();
+      browser.url('/');
+
+      // Exercise and Verification
+      assert.equal(browser.getText('#videos-container'), newVideo.title);
     });
   });
   describe('navigates to videos/create.html page', () => {

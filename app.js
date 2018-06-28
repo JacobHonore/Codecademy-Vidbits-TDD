@@ -5,6 +5,7 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const videosRoute = require('./routes/videos');
 const app = express();
+const Video = require('./models/video');
 
 // View engine setup
 app.engine('handlebars', expressHandlebars({defaultLayout: 'app'}));
@@ -22,7 +23,8 @@ app.use('/videos', videosRoute);
 
 // Render index handlebar
 app.get('/', async (req, res, next) => {
-  res.render('index');
+  const videos = await Video.find({});
+  res.render('index', {videos: videos});
 });
 
 // Catch 404 and forward to error handler
