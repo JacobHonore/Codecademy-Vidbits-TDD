@@ -20,6 +20,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Handle videos requests in seperate file
 app.use('/videos', videosRoute);
 
+// Render index handlebar
+app.get('/', async (req, res, next) => {
+  res.render('index');
+});
+
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {
   const err = new Error('Not Found');
