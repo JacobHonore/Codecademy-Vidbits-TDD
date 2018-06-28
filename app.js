@@ -23,8 +23,7 @@ app.use('/videos', videosRoute);
 
 // Render index handlebar
 app.get('/', async (req, res, next) => {
-  const videos = await Video.find({});
-  res.render('index', {videos: videos});
+  res.redirect('/videos');
 });
 
 // Catch 404 and forward to error handler

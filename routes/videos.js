@@ -19,3 +19,8 @@ router.post('/', async function(req, res) {
 router.get('/create', async function(req, res) {
   res.render('videos/create');
 });
+
+router.get('/', async (req, res, next) => {
+  const videos = await Video.find({});
+  res.render('videos/index', {videos: videos});
+});
