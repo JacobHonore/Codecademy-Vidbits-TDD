@@ -17,6 +17,11 @@ if (process.env.NODE_ENV !== 'test') {
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Catch post to videos and return 201
+app.post('/videos', function(req, res) {
+  res.sendStatus(201);
+});
+
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {
   const err = new Error('Not Found');
