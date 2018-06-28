@@ -15,6 +15,7 @@ describe('User visits create page', () => {
 
       // Verification
       assert.include(browser.getText('body'), itemToCreate.title);
+      assert.include(browser.getText('body'), itemToCreate.description);
     });
   });
 });
