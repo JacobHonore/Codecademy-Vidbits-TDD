@@ -7,14 +7,9 @@ const {mongoose, databaseUrl, options} = require('../../database');
 const Video = require('../../models/video')
 
 describe('Server path: /videos', () => {
-  beforeEach(async () => {
-    await mongoose.connect(databaseUrl, options);
-    await mongoose.connection.db.dropDatabase();
-  });
-
-  afterEach(async () => {
-     await mongoose.disconnect();
-  });
+  beforeEach(connectDatabase);
+  afterEach(disconnectDatabase);
+  
   describe('POST', () => {
     it('responds with created status', async () => {
       // Setup
