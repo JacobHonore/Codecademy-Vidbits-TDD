@@ -1,0 +1,18 @@
+<div class="contents-container">
+  <h1>Save a video</h1>
+  <form action="/videos" method="post">
+    <label>
+      Title
+      <input type="text" name="title" value="{{video.title}}" />
+    </label>
+    <label>
+      Description
+      <textarea name="description">
+        {{video.description}}
+      </textarea>
+    </label>
+    <button type="submit" class="input-button">
+      Save
+    </button>
+  </form>
+</div>

@@ -15,3 +15,7 @@ router.post('/', async function(req, res) {
   }
   res.status(201).render('videos/show', {video: newVideo});
 });
+
+router.get('/create', async function(req, res) {
+  res.render('videos/create');
+});
